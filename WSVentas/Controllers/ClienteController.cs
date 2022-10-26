@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 using WSVentas.Models;
 using WSVentas.Models.Response;
 using WSVentas.Models.Request;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WSVentas.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ClienteController : ControllerBase
     {
         [HttpGet]
@@ -40,7 +42,7 @@ namespace WSVentas.Controllers
         public IActionResult Add(ClienteRequest oModel)
         {
             Respuesta oRespuesta = new Respuesta();
-            try 
+            try
             {
                 using (VentaRealContext db = new VentaRealContext())
                 {
@@ -51,7 +53,7 @@ namespace WSVentas.Controllers
 
                     oRespuesta.Exito = 1;
                 }
-                
+
             }
             catch (Exception ex)
             {
