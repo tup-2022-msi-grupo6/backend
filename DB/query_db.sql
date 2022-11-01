@@ -95,15 +95,30 @@ codigo int identity,
 tipo_producto varchar(20),
 descripcion varchar(80),
 id_tipo_pintura int null,
-marca varchar(20),
-color varchar(20),
+id_marca int,
+id_color int,
 acabado varchar(50), --BRILLANTE, EXTRA BRILLANTE, MATE, METALIZADA, SATINADO, SEMI BRILLO, SEMI MATE, TORNASOLADO
 tamaño int,
 precio float,
 id_sector int,
 constraint pk_cod_p primary key(codigo),
 constraint fk_s foreign key (id_sector) references sector(id_sector),
-constraint fk_id_t foreign key(id_tipo_pintura) references tipo_pintura(id_tipo)
+constraint fk_id_t foreign key(id_tipo_pintura) references tipo_pintura(id_tipo),
+constraint fk_marca foreign key(id_marca) references marca(id_marca),
+constraint fk_color foreign key(id_color) references color(id_color)
+)
+
+
+create table color(
+id_color int identity,
+descripcion varchar(30),
+constraint pk_color primary key (id_color)
+)
+
+create table marca(
+id_marca int identity,
+descripcion varchar(30),
+constraint pk_marca primary key(id_marca)
 )
 
 create table empleado(
@@ -112,8 +127,20 @@ apellido varchar(30),
 nombre varchar(30),
 dni int,
 cargo varchar(30),
-constraint pk_id_empleado primary key (id_empleado)
+id_usuario int,
+constraint pk_id_empleado primary key (id_empleado),
+constraint fk_usuario foreign key(id_usuario) references usuario(id_usuario)
 )
+
+
+create table usuario(
+id_usuario int identity,
+email varchar(100) not null,
+password varchar(256) not null,
+nombre varchar(50) not null,
+constraint pk_usuario primary key (id_usuario)
+)
+
 
 
 create table venta(
@@ -260,7 +287,7 @@ insert into empleado(apellido, nombre, dni, cargo) values ('Fernandez', 'Fernand
 insert into empleado(apellido, nombre, dni, cargo) values ('Gonzalez', 'Gonzalo', 30993453, 'Empleado Stock')
 
 
-
+insert into usuario (email,password, nombre) values ('admin@mail.com', 'ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb', 'ADMIN')
 
 
 
