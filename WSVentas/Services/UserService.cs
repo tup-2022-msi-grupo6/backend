@@ -26,7 +26,7 @@ namespace WSVentas.Services
         {
             UserResponse userResponse = new UserResponse();
 
-            using (var db = new VentaRealContext())
+            using (var db = new PintucorContext())
             {
                 string sPassword = Encrypt.GetSHA256(model.Password);
 

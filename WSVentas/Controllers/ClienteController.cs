@@ -23,9 +23,9 @@ namespace WSVentas.Controllers
             oRespuesta.Exito = 0;
             try
             {
-                using (VentaRealContext db = new VentaRealContext())
+                using (PintucorContext db = new PintucorContext())
                 {
-                    var lst = db.Cliente.OrderByDescending(d => d.Id).ToList();
+                    var lst = db.Cliente.OrderByDescending(d => d.IdCliente).ToList();
                     oRespuesta.Exito = 1;
                     oRespuesta.Data = lst;
                 }
@@ -37,6 +37,7 @@ namespace WSVentas.Controllers
             return Ok(oRespuesta);
         }
 
+        
 
         [HttpPost]
         public IActionResult Add(ClienteRequest oModel)
@@ -44,7 +45,7 @@ namespace WSVentas.Controllers
             Respuesta oRespuesta = new Respuesta();
             try
             {
-                using (VentaRealContext db = new VentaRealContext())
+                using (PintucorContext db = new PintucorContext())
                 {
                     Cliente oCliente = new Cliente();
                     oCliente.Nombre = oModel.Nombre;
@@ -68,9 +69,9 @@ namespace WSVentas.Controllers
             Respuesta oRespuesta = new Respuesta();
             try
             {
-                using (VentaRealContext db = new VentaRealContext())
+                using (PintucorContext db = new PintucorContext())
                 {
-                    Cliente oCliente = db.Cliente.Find(oModel.Id);
+                    Cliente oCliente = db.Cliente.Find(oModel.IdCliente);
                     oCliente.Nombre = oModel.Nombre;
                     db.Entry(oCliente).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                     db.SaveChanges();
@@ -86,15 +87,15 @@ namespace WSVentas.Controllers
             return Ok(oRespuesta);
         }
 
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int Id)
+        [HttpDelete("{IdCliente}")]
+        public IActionResult Delete(int IdCliente)
         {
             Respuesta oRespuesta = new Respuesta();
             try
             {
-                using (VentaRealContext db = new VentaRealContext())
+                using (PintucorContext db = new PintucorContext())
                 {
-                    Cliente oCliente = db.Cliente.Find(Id);
+                    Cliente oCliente = db.Cliente.Find(IdCliente);
                     db.Remove(oCliente);
                     db.SaveChanges();
 
