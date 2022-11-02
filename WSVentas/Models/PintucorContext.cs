@@ -28,6 +28,7 @@ namespace WSVentas.Models
         public virtual DbSet<Marca> Marca { get; set; }
         public virtual DbSet<Producto> Producto { get; set; }
         public virtual DbSet<Provincia> Provincia { get; set; }
+        public virtual DbSet<Rol> Rol { get; set; }
         public virtual DbSet<Seccion> Seccion { get; set; }
         public virtual DbSet<Sector> Sector { get; set; }
         public virtual DbSet<TipoPintura> TipoPintura { get; set; }
@@ -399,6 +400,21 @@ namespace WSVentas.Models
                     .IsUnicode(false);
             });
 
+            modelBuilder.Entity<Rol>(entity =>
+            {
+                entity.HasKey(e => e.IdRol)
+                    .HasName("pk_rol");
+
+                entity.ToTable("rol");
+
+                entity.Property(e => e.IdRol).HasColumnName("id_rol");
+
+                entity.Property(e => e.Descripcion)
+                    .HasColumnName("descripcion")
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+            });
+
             modelBuilder.Entity<Seccion>(entity =>
             {
                 entity.HasKey(e => e.IdSeccion)
@@ -471,6 +487,8 @@ namespace WSVentas.Models
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
+                entity.Property(e => e.IdRol).HasColumnName("id_rol");
+
                 entity.Property(e => e.Nombre)
                     .IsRequired()
                     .HasColumnName("nombre")
@@ -482,6 +500,11 @@ namespace WSVentas.Models
                     .HasColumnName("password")
                     .HasMaxLength(256)
                     .IsUnicode(false);
+
+                entity.HasOne(d => d.IdRolNavigation)
+                    .WithMany(p => p.Usuario)
+                    .HasForeignKey(d => d.IdRol)
+                    .HasConstraintName("fk_rol");
             });
 
             modelBuilder.Entity<Venta>(entity =>
