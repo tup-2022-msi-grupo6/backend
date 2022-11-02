@@ -23,9 +23,9 @@ namespace WSVentas.Controllers
             oRespuesta.Exito = 0;
             try
             {
-                using (VentaRealContext db = new VentaRealContext())
+                using (PintucorContext db = new PintucorContext())
                 {
-                    var lst = db.Cliente.OrderByDescending(d => d.Id).ToList();
+                    var lst = db.Cliente.OrderByDescending(d => d.IdCliente).ToList();
                     oRespuesta.Exito = 1;
                     oRespuesta.Data = lst;
                 }
@@ -44,7 +44,7 @@ namespace WSVentas.Controllers
             Respuesta oRespuesta = new Respuesta();
             try
             {
-                using (VentaRealContext db = new VentaRealContext())
+                using (PintucorContext db = new PintucorContext())
                 {
                     Cliente oCliente = new Cliente();
                     oCliente.Nombre = oModel.Nombre;
@@ -68,7 +68,7 @@ namespace WSVentas.Controllers
             Respuesta oRespuesta = new Respuesta();
             try
             {
-                using (VentaRealContext db = new VentaRealContext())
+                using (PintucorContext db = new PintucorContext())
                 {
                     Cliente oCliente = db.Cliente.Find(oModel.Id);
                     oCliente.Nombre = oModel.Nombre;
@@ -92,7 +92,7 @@ namespace WSVentas.Controllers
             Respuesta oRespuesta = new Respuesta();
             try
             {
-                using (VentaRealContext db = new VentaRealContext())
+                using (PintucorContext db = new PintucorContext())
                 {
                     Cliente oCliente = db.Cliente.Find(Id);
                     db.Remove(oCliente);

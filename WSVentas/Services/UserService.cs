@@ -26,7 +26,7 @@ namespace WSVentas.Services
         {
             UserResponse userResponse = new UserResponse();
 
-            using (var db = new VentaRealContext())
+            using (var db = new PintucorContext())
             {
                 string sPassword = Encrypt.GetSHA256(model.Password);
 
@@ -52,7 +52,7 @@ namespace WSVentas.Services
                 Subject = new ClaimsIdentity(
                     new Claim[]
                         {
-                            new Claim(ClaimTypes.NameIdentifier, usuario.Id.ToString()),
+                            new Claim(ClaimTypes.NameIdentifier, usuario.IdUsuario.ToString()),
                             new Claim(ClaimTypes.Email, usuario.Email)
                         }
                 ),

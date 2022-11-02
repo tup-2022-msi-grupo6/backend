@@ -7,14 +7,26 @@ namespace WSVentas.Models
     {
         public Producto()
         {
-            Concepto = new HashSet<Concepto>();
+            DetalleVenta = new HashSet<DetalleVenta>();
+            Envio = new HashSet<Envio>();
         }
 
-        public int Id { get; set; }
-        public string Nombre { get; set; }
-        public decimal PrecioUnitario { get; set; }
-        public decimal Costo { get; set; }
+        public int Codigo { get; set; }
+        public string TipoProducto { get; set; }
+        public string Descripcion { get; set; }
+        public int? IdTipoPintura { get; set; }
+        public int? IdMarca { get; set; }
+        public int? IdColor { get; set; }
+        public string Acabado { get; set; }
+        public int? Tamaño { get; set; }
+        public double? Precio { get; set; }
+        public int? IdSector { get; set; }
 
-        public virtual ICollection<Concepto> Concepto { get; set; }
+        public virtual Color IdColorNavigation { get; set; }
+        public virtual Marca IdMarcaNavigation { get; set; }
+        public virtual Sector IdSectorNavigation { get; set; }
+        public virtual TipoPintura IdTipoPinturaNavigation { get; set; }
+        public virtual ICollection<DetalleVenta> DetalleVenta { get; set; }
+        public virtual ICollection<Envio> Envio { get; set; }
     }
 }
