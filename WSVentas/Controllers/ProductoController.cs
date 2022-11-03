@@ -35,7 +35,7 @@ namespace WSVentas.Controllers
 
         [HttpPost]
 
-        public IActionResult addProducto(ProductoRequest oModel)
+        public IActionResult AddProducto(ProductoRequest oModel)
         {
             Respuesta oRespuesta = new Respuesta();
             try
@@ -43,15 +43,16 @@ namespace WSVentas.Controllers
                 using (PintucorContext db = new PintucorContext())
                 {
                     Producto oProducto = new Producto();
-                    oProducto.TipoProducto = oModel.Tipo_producto;
-                    oProducto.Descripcion = oModel.Descripcion;
-                    oProducto.IdTipoPintura = oModel.Id_tipo_pintura;
-                    oProducto.IdMarca = oModel.Id_marca;
-                    oProducto.IdColor = oModel.Id_color;
-                    oProducto.Acabado = oModel.Acabado;
-                    oProducto.Tamaño = oModel.Tamaño;
-                    oProducto.Precio = oModel.Precio;
-                    oProducto.IdSector = oModel.Id_sector;
+                    oProducto.Codigo = oModel.codigo;
+                    oProducto.TipoProducto = oModel.tipo_producto;
+                    oProducto.Descripcion = oModel.descripcion;
+                    oProducto.IdTipoPintura = oModel.id_tipo_pintura;
+                    oProducto.IdMarca = oModel.id_marca;
+                    oProducto.IdColor = oModel.id_color;
+                    oProducto.Acabado = oModel.acabado;
+                    oProducto.Tamano = oModel.tamano;
+                    oProducto.Precio = oModel.precio;
+                    oProducto.IdSector = oModel.id_sector;
 
                     db.Producto.Add(oProducto);
                     db.SaveChanges();
@@ -63,6 +64,7 @@ namespace WSVentas.Controllers
             catch (Exception ex)
             {
                 oRespuesta.Mensaje = ex.Message;
+                Console.WriteLine(ex.InnerException.Message);
             }
             return Ok(oRespuesta);
 
@@ -76,16 +78,16 @@ namespace WSVentas.Controllers
             {
                 using (PintucorContext db = new PintucorContext())
                 {
-                    Producto oProducto = db.Producto.Find(oModel.Codigo);
-                    oProducto.TipoProducto = oModel.Tipo_producto;
-                    oProducto.Descripcion = oModel.Descripcion;
-                    oProducto.IdTipoPintura = oModel.Id_tipo_pintura;
-                    oProducto.IdMarca = oModel.Id_marca;
-                    oProducto.IdColor = oModel.Id_color;
-                    oProducto.Acabado = oModel.Acabado;
-                    oProducto.Tamaño = oModel.Tamaño;
-                    oProducto.Precio = oModel.Precio;
-                    oProducto.IdSector = oModel.Id_sector;
+                    Producto oProducto = db.Producto.Find(oModel.codigo);
+                    oProducto.TipoProducto = oModel.tipo_producto;
+                    oProducto.Descripcion = oModel.descripcion;
+                    oProducto.IdTipoPintura = oModel.id_tipo_pintura;
+                    oProducto.IdMarca = oModel.id_marca;
+                    oProducto.IdColor = oModel.id_color;
+                    oProducto.Acabado = oModel.acabado;
+                    oProducto.Tamano = oModel.tamano;
+                    oProducto.Precio = oModel.precio;
+                    oProducto.IdSector = oModel.id_sector;
 
                     db.Entry(oProducto).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                     db.SaveChanges();
@@ -102,15 +104,15 @@ namespace WSVentas.Controllers
 
         }
 
-        [HttpDelete]
-        public IActionResult deleteProducto(int Codigo)
+        [HttpDelete ("{codigo}")]
+        public IActionResult Delete(int codigo)
         {
             Respuesta oRespuesta = new Respuesta();
             try
             {
                 using (PintucorContext db = new PintucorContext())
                 {
-                    Producto oProducto = db.Producto.Find(Codigo);
+                    Producto oProducto = db.Producto.Find(codigo);
 
                     db.Remove(oProducto);
                     db.SaveChanges();

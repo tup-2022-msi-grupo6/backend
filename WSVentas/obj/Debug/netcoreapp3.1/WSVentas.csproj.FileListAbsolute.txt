@@ -283,3 +283,8 @@ C:\Users\bruno\Desktop\Tecnicatura\4 - Cuarto Semestre\MSI\TPI\backend\WSVentas\
 C:\Users\bruno\Desktop\Tecnicatura\4 - Cuarto Semestre\MSI\TPI\backend\WSVentas\obj\Debug\netcoreapp3.1\WSVentas.dll
 C:\Users\bruno\Desktop\Tecnicatura\4 - Cuarto Semestre\MSI\TPI\backend\WSVentas\obj\Debug\netcoreapp3.1\WSVentas.pdb
 C:\Users\bruno\Desktop\Tecnicatura\4 - Cuarto Semestre\MSI\TPI\backend\WSVentas\obj\Debug\netcoreapp3.1\WSVentas.genruntimeconfig.cache
+C:\Users\bruno\Desktop\Tecnicatura\4 - Cuarto Semestre\MSI\TPI\backend\WSVentas\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\bruno\Desktop\Tecnicatura\4 - Cuarto Semestre\MSI\TPI\backend\WSVentas\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\bruno\Desktop\Tecnicatura\4 - Cuarto Semestre\MSI\TPI\backend\WSVentas\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\bruno\Desktop\Tecnicatura\4 - Cuarto Semestre\MSI\TPI\backend\WSVentas\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\bruno\Desktop\Tecnicatura\4 - Cuarto Semestre\MSI\TPI\backend\WSVentas\obj\Debug\netcoreapp3.1\WSVentas.MvcApplicationPartsAssemblyInfo.cs

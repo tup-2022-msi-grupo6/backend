@@ -39,7 +39,6 @@ namespace WSVentas.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Server=DESKTOP-EN4EVL9\\SQLEXPRESS;Database=Pintucor;Trusted_Connection=True;User=Bruno;Password=123456");
             }
         }
@@ -357,7 +356,7 @@ namespace WSVentas.Models
 
                 entity.Property(e => e.Precio).HasColumnName("precio");
 
-                entity.Property(e => e.Tamaño).HasColumnName("tamaño");
+                entity.Property(e => e.Tamano).HasColumnName("tamano");
 
                 entity.Property(e => e.TipoProducto)
                     .HasColumnName("tipo_producto")
@@ -464,11 +463,6 @@ namespace WSVentas.Models
                 entity.Property(e => e.TipoPintura1)
                     .HasColumnName("tipoPintura")
                     .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Titulo)
-                    .HasColumnName("titulo")
-                    .HasMaxLength(40)
                     .IsUnicode(false);
             });
 
