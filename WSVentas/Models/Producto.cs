@@ -15,13 +15,15 @@ namespace WSVentas.Models
         public string TipoProducto { get; set; }
         public string Descripcion { get; set; }
         public int? IdTipoPintura { get; set; }
-        public string Marca { get; set; }
-        public string Color { get; set; }
+        public int? IdMarca { get; set; }
+        public int? IdColor { get; set; }
         public string Acabado { get; set; }
         public int? Tamaño { get; set; }
         public double? Precio { get; set; }
         public int? IdSector { get; set; }
 
+        public virtual Color IdColorNavigation { get; set; }
+        public virtual Marca IdMarcaNavigation { get; set; }
         public virtual Sector IdSectorNavigation { get; set; }
         public virtual TipoPintura IdTipoPinturaNavigation { get; set; }
         public virtual ICollection<DetalleVenta> DetalleVenta { get; set; }

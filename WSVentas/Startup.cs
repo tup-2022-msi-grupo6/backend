@@ -15,6 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WSVentas.Models.Common;
 using WSVentas.Services;
+using Microsoft.OpenApi.Models;
 
 namespace WSVentas
 {
@@ -31,6 +32,7 @@ namespace WSVentas
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            AddSwagger(services);
 
             //services.AddMvc();
             services.AddCors(options => {
@@ -73,6 +75,27 @@ namespace WSVentas
             services.AddScoped<IUserService, UserService>();
         }
 
+        private void AddSwagger(IServiceCollection services)
+        {
+            services.AddSwaggerGen(options =>
+            {
+                var groupName = "v1";
+
+                options.SwaggerDoc(groupName, new OpenApiInfo
+                {
+                    Title = $"Foo {groupName}",
+                    Version = groupName,
+                    Description = "Foo API",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Foo Company",
+                        Email = string.Empty,
+                        Url = new Uri("https://foo.com/"),
+                    }
+                });
+            });
+        }
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -82,6 +105,13 @@ namespace WSVentas
             }
 
             app.UseHttpsRedirection();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Foo API V1");
+            });
+
 
             app.UseRouting();
 

@@ -37,7 +37,6 @@ namespace WSVentas.Controllers
             return Ok(oRespuesta);
         }
 
-        
 
         [HttpPost]
         public IActionResult Add(ClienteRequest oModel)
@@ -71,7 +70,7 @@ namespace WSVentas.Controllers
             {
                 using (PintucorContext db = new PintucorContext())
                 {
-                    Cliente oCliente = db.Cliente.Find(oModel.IdCliente);
+                    Cliente oCliente = db.Cliente.Find(oModel.Id);
                     oCliente.Nombre = oModel.Nombre;
                     db.Entry(oCliente).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                     db.SaveChanges();
@@ -87,15 +86,15 @@ namespace WSVentas.Controllers
             return Ok(oRespuesta);
         }
 
-        [HttpDelete("{IdCliente}")]
-        public IActionResult Delete(int IdCliente)
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int Id)
         {
             Respuesta oRespuesta = new Respuesta();
             try
             {
                 using (PintucorContext db = new PintucorContext())
                 {
-                    Cliente oCliente = db.Cliente.Find(IdCliente);
+                    Cliente oCliente = db.Cliente.Find(Id);
                     db.Remove(oCliente);
                     db.SaveChanges();
 

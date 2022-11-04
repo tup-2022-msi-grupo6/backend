@@ -15,7 +15,9 @@ namespace WSVentas.Models
         public string Nombre { get; set; }
         public int? Dni { get; set; }
         public string Cargo { get; set; }
+        public int? IdUsuario { get; set; }
 
+        public virtual Usuario IdUsuarioNavigation { get; set; }
         public virtual ICollection<Venta> Venta { get; set; }
     }
 }
