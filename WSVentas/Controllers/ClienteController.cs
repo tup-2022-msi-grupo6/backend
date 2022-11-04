@@ -7,13 +7,11 @@ using System.Threading.Tasks;
 using WSVentas.Models;
 using WSVentas.Models.Response;
 using WSVentas.Models.Request;
-using Microsoft.AspNetCore.Authorization;
 
 namespace WSVentas.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class ClienteController : ControllerBase
     {
         [HttpGet]
@@ -23,9 +21,9 @@ namespace WSVentas.Controllers
             oRespuesta.Exito = 0;
             try
             {
-                using (PintucorContext db = new PintucorContext())
+                using (VentaRealContext db = new VentaRealContext())
                 {
-                    var lst = db.Cliente.OrderByDescending(d => d.IdCliente).ToList();
+                    var lst = db.Cliente.OrderByDescending(d => d.Id).ToList();
                     oRespuesta.Exito = 1;
                     oRespuesta.Data = lst;
                 }
@@ -42,9 +40,9 @@ namespace WSVentas.Controllers
         public IActionResult Add(ClienteRequest oModel)
         {
             Respuesta oRespuesta = new Respuesta();
-            try
+            try 
             {
-                using (PintucorContext db = new PintucorContext())
+                using (VentaRealContext db = new VentaRealContext())
                 {
                     Cliente oCliente = new Cliente();
                     oCliente.Nombre = oModel.Nombre;
@@ -53,7 +51,7 @@ namespace WSVentas.Controllers
 
                     oRespuesta.Exito = 1;
                 }
-
+                
             }
             catch (Exception ex)
             {
@@ -68,7 +66,7 @@ namespace WSVentas.Controllers
             Respuesta oRespuesta = new Respuesta();
             try
             {
-                using (PintucorContext db = new PintucorContext())
+                using (VentaRealContext db = new VentaRealContext())
                 {
                     Cliente oCliente = db.Cliente.Find(oModel.Id);
                     oCliente.Nombre = oModel.Nombre;
@@ -92,7 +90,7 @@ namespace WSVentas.Controllers
             Respuesta oRespuesta = new Respuesta();
             try
             {
-                using (PintucorContext db = new PintucorContext())
+                using (VentaRealContext db = new VentaRealContext())
                 {
                     Cliente oCliente = db.Cliente.Find(Id);
                     db.Remove(oCliente);
