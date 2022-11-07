@@ -57,15 +57,15 @@ insert into sector (descripcion, id_estante) values ('B', 7)
 insert into sector (descripcion, id_estante) values ('B', 8)
 
 --INSERTS TIPO PINTURA
-insert into tipo_pintura(tipoPintura) values ('Impermeable', 'Fibrado')
-insert into tipo_pintura( tipoPintura) values ('Protector', 'Barniz')
-insert into tipo_pintura(tipoPintura) values ('Aerosol', 'Decorativo')
-insert into tipo_pintura(tipoPintura) values ('Producto Especial', 'Alta temperatura')
-insert into tipo_pintura(tipoPintura) values ('Pisos', 'Esmalte base agua')
-insert into tipo_pintura( tipoPintura) values ('Piletas', 'Caucho clorado')
-insert into tipo_pintura( tipoPintura) values ('Latex', 'Interior/Exterior')
-insert into tipo_pintura( tipoPintura) values ('Sinteticos', 'Esmalte base agua')
-insert into tipo_pintura( tipoPintura) values ('Otro', 'Complemento')
+insert into tipo_pintura(tipoPintura) values ('Fibrado')
+insert into tipo_pintura( tipoPintura) values ('Barniz')
+insert into tipo_pintura(tipoPintura) values ('Decorativo')
+insert into tipo_pintura(tipoPintura) values ('Alta temperatura')
+insert into tipo_pintura(tipoPintura) values ('Esmalte base agua')
+insert into tipo_pintura( tipoPintura) values ('Caucho clorado')
+insert into tipo_pintura( tipoPintura) values ('Interior/Exterior')
+insert into tipo_pintura( tipoPintura) values ('Esmalte base agua')
+insert into tipo_pintura( tipoPintura) values ('Complemento')
 
 
 --INSERTS FORMA PAGO
