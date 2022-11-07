@@ -286,3 +286,6 @@ C:\Users\Tomas\source\repos\MSI2022\backend\WSVentas\obj\Debug\netcoreapp3.1\WSV
 C:\Users\Tomas\source\repos\MSI2022\backend\WSVentas\obj\Debug\netcoreapp3.1\WSVentas.Views.pdb
 C:\Users\Tomas\source\repos\MSI2022\backend\WSVentas\obj\Debug\netcoreapp3.1\WSVentas.csproj.CopyComplete
 C:\Users\Tomas\source\repos\MSI2022\backend\WSVentas\obj\Debug\netcoreapp3.1\WSVentas.genruntimeconfig.cache
+C:\Users\Tomas\source\repos\MSI2022\backend\WSVentas\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Tomas\source\repos\MSI2022\backend\WSVentas\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Tomas\source\repos\MSI2022\backend\WSVentas\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
