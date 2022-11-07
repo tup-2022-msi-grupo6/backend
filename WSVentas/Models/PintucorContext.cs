@@ -303,7 +303,7 @@ namespace WSVentas.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Color)
+                entity.Property(e => e.IdColor)
                     .HasColumnName("color")
                     .HasMaxLength(20)
                     .IsUnicode(false);
@@ -317,14 +317,14 @@ namespace WSVentas.Models
 
                 entity.Property(e => e.IdTipoPintura).HasColumnName("id_tipo_pintura");
 
-                entity.Property(e => e.Marca)
+                entity.Property(e => e.IdMarca)
                     .HasColumnName("marca")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Precio).HasColumnName("precio");
 
-                entity.Property(e => e.Tamaño).HasColumnName("tamaño");
+                entity.Property(e => e.Tamano).HasColumnName("tamaño");
 
                 entity.Property(e => e.TipoProducto)
                     .HasColumnName("tipo_producto")
