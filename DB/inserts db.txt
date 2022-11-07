@@ -1,0 +1,106 @@
+--INSERTS ESTADOS
+insert into estado (descripcion) values ('En el local')
+insert into estado (descripcion) values ('En camino')
+insert into estado (descripcion) values ('Cancelado')
+insert into estado (descripcion) values ('Entregado')
+
+--INSERTS PROVINCIA
+insert into provincia (nombre) values ('Buenos Aires')
+insert into provincia (nombre) values ('CABA')
+insert into provincia (nombre) values ('Catamarca')
+insert into provincia (nombre) values ('Chaco')
+insert into provincia (nombre) values ('Chubut')
+insert into provincia (nombre) values ('Córdoba')
+insert into provincia (nombre) values ('Corrientes')
+insert into provincia (nombre) values ('Entre Ríos')
+insert into provincia (nombre) values ('Formosa')
+insert into provincia (nombre) values ('Jujuy')
+insert into provincia (nombre) values ('La Pampa')
+insert into provincia (nombre) values ('La Rioja')
+insert into provincia (nombre) values ('Mendoza')
+insert into provincia (nombre) values ('Misiones')
+insert into provincia (nombre) values ('Neuquén')
+insert into provincia (nombre) values ('Río Negro')
+insert into provincia (nombre) values ('Salta')
+insert into provincia (nombre) values ('San Juan')
+insert into provincia (nombre) values ('San Luis')
+insert into provincia (nombre) values ('Santa Cruz')
+insert into provincia (nombre) values ('Santa Fe')
+insert into provincia (nombre) values ('Santiago del Estero')
+insert into provincia (nombre) values ('Tierra del Fuego')
+insert into provincia (nombre) values ('Tucumán')
+
+--INSERTS SECCION
+insert into seccion (descripcion) values ('Fila 1')
+insert into seccion (descripcion) values ('Fila 2')
+insert into seccion (descripcion) values ('Fila 3')
+insert into seccion (descripcion) values ('Fila 4')
+
+--INSERTS ESTANTES
+insert into estante(descripcion,id_seccion) values ('Estante 1', 1)
+insert into estante(descripcion,id_seccion) values ('Estante 1', 2)
+insert into estante(descripcion,id_seccion) values ('Estante 1', 3)
+insert into estante(descripcion,id_seccion) values ('Estante 1', 4)
+insert into estante(descripcion,id_seccion) values ('Estante 2', 1)
+insert into estante(descripcion,id_seccion) values ('Estante 2', 2)
+insert into estante(descripcion,id_seccion) values ('Estante 2', 3)
+insert into estante(descripcion,id_seccion) values ('Estante 2', 4)
+
+--INSERTS SECTOR
+insert into sector (descripcion, id_estante) values ('A', 1)
+insert into sector (descripcion, id_estante) values ('A', 2)
+insert into sector (descripcion, id_estante) values ('A', 3)
+insert into sector (descripcion, id_estante) values ('A', 4)
+insert into sector (descripcion, id_estante) values ('B', 5)
+insert into sector (descripcion, id_estante) values ('B', 6)
+insert into sector (descripcion, id_estante) values ('B', 7)
+insert into sector (descripcion, id_estante) values ('B', 8)
+
+--INSERTS TIPO PINTURA
+insert into tipo_pintura(tipoPintura) values ('Impermeable', 'Fibrado')
+insert into tipo_pintura( tipoPintura) values ('Protector', 'Barniz')
+insert into tipo_pintura(tipoPintura) values ('Aerosol', 'Decorativo')
+insert into tipo_pintura(tipoPintura) values ('Producto Especial', 'Alta temperatura')
+insert into tipo_pintura(tipoPintura) values ('Pisos', 'Esmalte base agua')
+insert into tipo_pintura( tipoPintura) values ('Piletas', 'Caucho clorado')
+insert into tipo_pintura( tipoPintura) values ('Latex', 'Interior/Exterior')
+insert into tipo_pintura( tipoPintura) values ('Sinteticos', 'Esmalte base agua')
+insert into tipo_pintura( tipoPintura) values ('Otro', 'Complemento')
+
+
+--INSERTS FORMA PAGO
+insert into forma_pago (descripcion) values('Efectivo')
+insert into forma_pago (descripcion) values('Tarjeta Debito')
+insert into forma_pago (descripcion) values('Tarjeta Credito')
+
+
+--INSERTS EMPLEADO
+insert into empleado(apellido, nombre, dni, cargo) values ('Ramirez', 'Ramiro', 34345890, 'Admin')
+insert into empleado(apellido, nombre, dni, cargo) values ('Fernandez', 'Fernando', 32555090, 'Empleado Caja')
+insert into empleado(apellido, nombre, dni, cargo) values ('Gonzalez', 'Gonzalo', 30993453, 'Empleado Stock')
+
+--INSERTS USUARIOS
+insert into usuario (email,password, nombre) values ('admin@mail.com', 'ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb', 'ADMIN')
+
+--INSERTS MARCAS
+insert into marca(descripcion) values ('Sherwin Williams')
+insert into marca(descripcion) values ('Tersuave')
+insert into marca(descripcion) values ('Alba')
+insert into marca(descripcion) values ('Sinteplast')
+
+--INSERTS COLORES
+insert into color(descripcion) values ('Blanco')
+insert into color(descripcion) values ('Negro')
+insert into color(descripcion) values ('Gris')
+insert into color(descripcion) values ('Amarillo')
+insert into color(descripcion) values ('Naranja')
+insert into color(descripcion) values ('Rojo')
+insert into color(descripcion) values ('Violeta')
+insert into color(descripcion) values ('Azul')
+insert into color(descripcion) values ('Verde')
+insert into color(descripcion) values ('Marron')
+
+--INSERTS ROLES
+insert into rol(descripcion) values ('Administrador')
+insert into rol(descripcion) values ('Caja')
+insert into rol(descripcion) values ('Stock')
