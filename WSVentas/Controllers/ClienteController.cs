@@ -87,15 +87,15 @@ namespace WSVentas.Controllers
             return Ok(oRespuesta);
         }
 
-        [HttpDelete("{IdCliente}")]
-        public IActionResult Delete(int IdCliente)
+        [HttpDelete("{id_cliente}")]
+        public IActionResult Delete(int id_cliente)
         {
             Respuesta oRespuesta = new Respuesta();
             try
             {
                 using (PintucorContext db = new PintucorContext())
                 {
-                    Cliente oCliente = db.Cliente.Find(IdCliente);
+                    Cliente oCliente = db.Cliente.Find(id_cliente);
                     db.Remove(oCliente);
                     db.SaveChanges();
 

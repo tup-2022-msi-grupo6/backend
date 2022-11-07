@@ -29,11 +29,11 @@ namespace WSVentas.Controllers
             {
                 using (PintucorContext db = new PintucorContext())
                 {
-                    var cantidadDia = db.Venta.Where(v => v.FechaVenta.Day.Equals(fecha.Dia) && v.FechaVenta.Month.Equals(fecha.Mes) && v.FechaVenta.Year.Equals(fecha.Anio))
+                    var cantidadDia = db.Venta.Where(v => v.FechaVenta.Value.Day.Equals(fecha.Dia) && v.FechaVenta.Value.Month.Equals(fecha.Mes) && v.FechaVenta.Value.Year.Equals(fecha.Anio))
                         .Count();
-                    var cantidadMes = db.Venta.Where(v => v.FechaVenta.Month.Equals(fecha.Mes) && v.FechaVenta.Year.Equals(fecha.Anio))
+                    var cantidadMes = db.Venta.Where(v => v.FechaVenta.Value.Month.Equals(fecha.Mes) && v.FechaVenta.Value.Year.Equals(fecha.Anio))
                         .Count();
-                    var cantidadAnio = db.Venta.Where(v => v.FechaVenta.Year.Equals(fecha.Anio))
+                    var cantidadAnio = db.Venta.Where(v => v.FechaVenta.Value.Year.Equals(fecha.Anio))
                         .Count();
 
                     cantidades.Dia = cantidadDia;
@@ -64,13 +64,13 @@ namespace WSVentas.Controllers
                 using (PintucorContext db = new PintucorContext())
                 {
                     var cantidadDia = db.DetalleVenta.Join(db.Venta, dv => dv.NroFac, v => v.NroFac, (dv, v) => new { dv, v })
-                        .Where(x => x.v.FechaVenta.Day.Equals(fecha.Dia) && x.v.FechaVenta.Month.Equals(fecha.Mes) && x.v.FechaVenta.Year.Equals(fecha.Anio))
+                        .Where(x => x.v.FechaVenta.Value.Day.Equals(fecha.Dia) && x.v.FechaVenta.Value.Month.Equals(fecha.Mes) && x.v.FechaVenta.Value.Year.Equals(fecha.Anio))
                         .Sum(x => x.dv.ImporteBruto);
                     var cantidadMes = db.DetalleVenta.Join(db.Venta, dv => dv.NroFac, v => v.NroFac, (dv, v) => new { dv, v })
-                        .Where(x => x.v.FechaVenta.Month.Equals(fecha.Mes) && x.v.FechaVenta.Year.Equals(fecha.Anio))
+                        .Where(x => x.v.FechaVenta.Value.Month.Equals(fecha.Mes) && x.v.FechaVenta.Value.Year.Equals(fecha.Anio))
                         .Sum(x => x.dv.ImporteBruto);
                     var cantidadAnio = db.DetalleVenta.Join(db.Venta, dv => dv.NroFac, v => v.NroFac, (dv, v) => new { dv, v })
-                        .Where(x => x.v.FechaVenta.Year.Equals(fecha.Anio))
+                        .Where(x => x.v.FechaVenta.Value.Year.Equals(fecha.Anio))
                         .Sum(x => x.dv.ImporteBruto);
 
                     ingresos.Dia = (double)cantidadDia;
@@ -101,7 +101,7 @@ namespace WSVentas.Controllers
                 {
 
                     var lst = db.DetalleVenta.Join(db.Venta, dv => dv.NroFac, v => v.NroFac, (dv, v) => new { dv, v })
-                        .Where(x => x.v.FechaVenta.Year.Equals(fecha.Anio)).GroupBy(x => x.v.FechaVenta.Month)
+                        .Where(x => x.v.FechaVenta.Value.Year.Equals(fecha.Anio)).GroupBy(x => x.v.FechaVenta.Value.Month)
                         .Select(y => new { Mes = y.Key, Ingreso = y.Sum(x => x.dv.ImporteBruto) })
                         .ToList();
 
@@ -135,7 +135,7 @@ namespace WSVentas.Controllers
 
                     var lst = db.Venta
                             .Join(db.DetalleVenta, v => v.NroFac, dv => dv.NroFac, (v, dv) => new { v, dv })
-                            .Where(x => x.v.FechaVenta.Year.Equals(fecha.Anio))
+                            .Where(x => x.v.FechaVenta.Value.Year.Equals(fecha.Anio))
                             .Join(db.Empleado, vv => vv.v.IdEmpleado, e => e.IdEmpleado, (vv, e) => new { vv, e })
                             .GroupBy(x => x.e.Apellido)
                             .Select(y => new
@@ -176,7 +176,7 @@ namespace WSVentas.Controllers
 
                     var lst = db.Venta
                             .Join(db.DetalleVenta, v => v.NroFac, dv => dv.NroFac, (v, dv) => new { v, dv })
-                            .Where(x => x.v.FechaVenta.Year.Equals(fecha.Anio) && x.v.FechaVenta.Month.Equals(fecha.Mes))
+                            .Where(x => x.v.FechaVenta.Value.Year.Equals(fecha.Anio) && x.v.FechaVenta.Value.Month.Equals(fecha.Mes))
                             .Join(db.Empleado, vv => vv.v.IdEmpleado, e => e.IdEmpleado, (vv, e) => new { vv, e })
                             .GroupBy(x => x.e.Apellido)
                             .Select(y => new

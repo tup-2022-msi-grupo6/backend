@@ -12,8 +12,8 @@ namespace WSVentas.Models
         }
 
         public int Codigo { get; set; }
-        public string? TipoProducto { get; set; }
-        public string? Descripcion { get; set; }
+        public string TipoProducto { get; set; }
+        public string Descripcion { get; set; }
         public int? IdTipoPintura { get; set; }
         public int? IdMarca { get; set; }
         public int? IdColor { get; set; }
