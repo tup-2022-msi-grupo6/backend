@@ -15,6 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WSVentas.Models.Common;
 using WSVentas.Services;
+using WSVentas.Tools;
 
 namespace WSVentas
 {
@@ -41,8 +42,13 @@ namespace WSVentas
                                       builder.WithOrigins("*");
                                   });
             });
-           
-            services.AddControllers();
+
+            services.AddControllers().AddNewtonsoftJson();
+                //.AddJsonOptions(opt =>
+                //{
+                //    opt.JsonSerializerOptions.Converters.Add(new IntToStringConverter());
+                //    opt.JsonSerializerOptions.Converters.Add(new DecimalToStringConverter());
+                //});
             services.AddRazorPages();
 
             var appSettingsSection = Configuration.GetSection("AppSettings");
@@ -71,6 +77,7 @@ namespace WSVentas
              });
 
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IVentaService, VentaService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

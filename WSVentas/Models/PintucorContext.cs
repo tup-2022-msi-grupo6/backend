@@ -110,13 +110,11 @@ namespace WSVentas.Models
 
             modelBuilder.Entity<DetalleVenta>(entity =>
             {
-                entity.HasKey(e => e.NroFac);
+                entity.HasKey(e => e.IdDetalleVenta);
 
                 entity.ToTable("detalle_venta");
 
-                entity.Property(e => e.NroFac)
-                    .HasColumnName("nroFac")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.IdDetalleVenta).HasColumnName("Id_detalle_venta");
 
                 entity.Property(e => e.Cantidad).HasColumnName("cantidad");
 
@@ -129,13 +127,17 @@ namespace WSVentas.Models
 
                 entity.Property(e => e.Descuento).HasColumnName("descuento");
 
-                entity.Property(e => e.ImporteBruto).HasColumnName("importe_bruto");
+                entity.Property(e => e.ImporteBruto)
+                    .HasColumnName("importe_bruto")
+                    .HasColumnType("decimal(16, 2)");
 
                 entity.Property(e => e.Impuesto).HasColumnName("impuesto");
 
-                entity.Property(e => e.PrecioUnitario).HasColumnName("precio_unitario");
+                entity.Property(e => e.NroFac).HasColumnName("nroFac");
 
-                entity.Property(e => e.Total).HasColumnName("total");
+                entity.Property(e => e.PrecioUnitario)
+                    .HasColumnName("precio_unitario")
+                    .HasColumnType("decimal(16, 2)");
 
                 entity.HasOne(d => d.CodigoProductoNavigation)
                     .WithMany(p => p.DetalleVenta)
@@ -144,8 +146,8 @@ namespace WSVentas.Models
                     .HasConstraintName("fk_cod");
 
                 entity.HasOne(d => d.NroFacNavigation)
-                    .WithOne(p => p.DetalleVenta)
-                    .HasForeignKey<DetalleVenta>(d => d.NroFac)
+                    .WithMany(p => p.DetalleVenta)
+                    .HasForeignKey(d => d.NroFac)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_nroF");
             });
@@ -458,9 +460,14 @@ namespace WSVentas.Models
 
                 entity.Property(e => e.IdFormaPago).HasColumnName("id_forma_pago");
 
+                entity.Property(e => e.Total)
+                    .HasColumnName("total")
+                    .HasColumnType("decimal(16, 2)");
+
                 entity.HasOne(d => d.IdClienteNavigation)
                     .WithMany(p => p.Venta)
                     .HasForeignKey(d => d.IdCliente)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_id_c");
 
                 entity.HasOne(d => d.IdEmpleadoNavigation)
