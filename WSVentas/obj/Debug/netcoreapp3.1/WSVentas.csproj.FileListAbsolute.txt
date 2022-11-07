@@ -141,7 +141,6 @@ C:\Users\Tomas\source\repos\WSVenta\WSVentas\WSVentas\bin\Debug\netcoreapp3.1\Mi
 C:\Users\Tomas\source\repos\WSVenta\WSVentas\WSVentas\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\Tomas\source\repos\WSVenta\WSVentas\WSVentas\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Tomas\source\repos\WSVenta\WSVentas\WSVentas\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\Tomas\source\repos\MSI2022\backend\WSVentas\obj\Debug\netcoreapp3.1\WSVentas.csproj.AssemblyReference.cache
 C:\Users\Tomas\source\repos\MSI2022\backend\WSVentas\obj\Debug\netcoreapp3.1\WSVentas.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Tomas\source\repos\MSI2022\backend\WSVentas\obj\Debug\netcoreapp3.1\WSVentas.AssemblyInfoInputs.cache
 C:\Users\Tomas\source\repos\MSI2022\backend\WSVentas\obj\Debug\netcoreapp3.1\WSVentas.AssemblyInfo.cs
