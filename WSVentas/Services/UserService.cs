@@ -52,7 +52,7 @@ namespace WSVentas.Services
                 Subject = new ClaimsIdentity(
                     new Claim[]
                         {
-                            new Claim(ClaimTypes.NameIdentifier, usuario.Id.ToString()),
+                            new Claim(ClaimTypes.NameIdentifier, usuario.IdUsuario.ToString()),
                             new Claim(ClaimTypes.Email, usuario.Email)
                         }
                 ),
